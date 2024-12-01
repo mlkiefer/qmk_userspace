@@ -21,6 +21,7 @@ enum charybdis_keymap_layers {
     LAYER_LOWER,
     LAYER_RAISE,
     LAYER_POINTER,
+    LAYER_FUNC,
 };
 
 /** \brief Automatically enable sniping-mode on the pointer layer. */
@@ -44,7 +45,9 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define PT_Z LT(LAYER_POINTER, KC_Z)
 #define PT_SLSH LT(LAYER_POINTER, KC_SLSH)
 
-#define LT_EXTD_ESC LT(LAYER_LOWER, KC_ESC)
+#define LT_R_ESC LT(LAYER_RAISE, KC_ESC)
+#define LT_L_BKS LT(LAYER_LOWER, KC_BSPC)
+#define LT_F_TAB LT(LAYER_FUNC, KC_TAB)
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -56,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LSFT,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, PT_SLSH, KC_RSFT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  LT_EXTD_ESC,  KC_SPC,   LOWER,      RAISE,  KC_ENT
+                      LT_R_ESC,  LSFT_T(KC_SPC),   LT_F_TAB,      RSFT_T(KC_ENT),  LT_L_BKS
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 
@@ -64,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,    KC_PAST,    KC_7,  KC_8,  KC_9,  KC_PPLS, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, KC_SCLN, KC_COLN, KC_LCBR, KC_LPRN, KC_LBRC,    KC_EQUAL,   KC_4,  KC_5,  KC_6,  KC_PMNS, XXXXXXX,
+       XXXXXXX, KC_SCLN, KC_COLN, KC_LCBR, KC_LPRN, KC_LBRC,    KC_EQUAL,   KC_4,  KC_5,  KC_6,  MINS_UNDSCR, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, KC_CIRC, KC_AMPR, KC_RCBR, KC_RPRN, KC_RBRC,    KC_0,      KC_1,  KC_2,  KC_3,   KC_PSLS, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
@@ -93,6 +96,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        XXXXXXX, _______, DRGSCRL, SNIPING, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, SNIPING, DRGSCRL, _______, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                   KC_BTN2, KC_BTN1, KC_BTN3,    KC_BTN3, KC_BTN1
+  //                            ╰───────────────────────────╯ ╰──────────────────╯
+  ),
+
+    [LAYER_FUNC] = LAYOUT(
+  // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
+       XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,    KC_PSCR,    KC_F7,  KC_F8,  KC_F9,  KC_F10, XXXXXXX,
+  // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
+       XXXXXXX, KC_SCLN, KC_COLN, KC_LCBR, KC_LPRN, KC_LBRC,    KC_SCRL,    KC_F4,  KC_F5,  KC_F6,  KC_F11, XXXXXXX,
+  // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
+       XXXXXXX, KC_CIRC, KC_AMPR, KC_RCBR, KC_RPRN, KC_RBRC,    KC_PAUS,    KC_F1,  KC_F2,  KC_F3,  KC_F12, XXXXXXX,
+  // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
+                                  KC_ESC,   KC_SPC, _______,    XXXXXXX, _______
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 };
