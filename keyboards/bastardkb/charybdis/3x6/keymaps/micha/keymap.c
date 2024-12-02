@@ -131,7 +131,8 @@ enum combos {
   VM_UNDERSCORE,
   R1_UNDERSCORE,
   EI_BSL,
-  GH_TILDE
+  GH_TILDE,
+  C_COMMA,
 };
 
 const uint16_t PROGMEM ru_combo[] = {KC_R, KC_U, COMBO_END};
@@ -139,6 +140,7 @@ const uint16_t PROGMEM vm_combo[] = {KC_V, KC_M, COMBO_END};
 const uint16_t PROGMEM ei_combo[] = {KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM r1_combo[] = {KC_RPRN, KC_1, COMBO_END};
 const uint16_t PROGMEM gh_combo[] = {KC_G, KC_H, COMBO_END};
+const uint16_t PROGMEM ccomm_combo[] = {KC_C, KC_COMM, COMBO_END};
 
 combo_t key_combos[] = {
   [RU_PIPE] = COMBO(ru_combo, LSFT(KC_BSLS)),
@@ -146,6 +148,7 @@ combo_t key_combos[] = {
   [EI_BSL] = COMBO(ei_combo, KC_BSLS),
   [R1_UNDERSCORE] = COMBO(r1_combo, LSFT(KC_MINUS)),
   [GH_TILDE] = COMBO(gh_combo, LSFT(KC_GRV)),
+  [C_COMMA] = COMBO(ccomm_combo, KC_GRV),
 };
 
 
