@@ -48,7 +48,6 @@ static uint16_t auto_pointer_layer_timer = 0;
 
 #define LT_R_ESC LT(LAYER_RAISE, KC_ESC)
 #define LT_L_BKS LT(LAYER_LOWER, KC_BSPC)
-#define LT_L_ENT LT(LAYER_LOWER, KC_ENT)
 #define LT_F_TAB LT(LAYER_FUNC, KC_TAB)
 
 // Left-hand home row mods
@@ -74,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LSFT,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, PT_SLSH, KC_RSFT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                      LT_R_ESC,  LSFT_T(KC_SPC),   LT_F_TAB,      RSFT_T(KC_BSPC),  LT_L_ENT
+                      LT_R_ESC,  LSFT_T(KC_SPC),   LT_F_TAB,      RSFT_T(KC_ENT),  LT_L_BKS
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 
